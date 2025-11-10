@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('vehicle_model');
             $table->string('vehicle_plate', 8)->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

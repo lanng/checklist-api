@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Driver extends Model
 {
     use SoftDeletes;
+
     protected $guarded = [
         'id',
     ];

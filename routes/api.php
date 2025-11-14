@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Api\CompanyController;
+use App\Http\Controllers\Api\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/auth')->group(function () {
@@ -12,4 +13,5 @@ Route::prefix('/auth')->group(function () {
 Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('/logout', [LoginController::class, 'logout']);
+    Route::apiResource('/companies', CompanyController::class);
 });

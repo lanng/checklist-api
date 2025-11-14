@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -20,6 +21,12 @@ class LoginController extends Controller
 
         if (Auth::guard('web')->attempt($credentials)) {
             $request->session()->regenerate();
+
+            if (Auth::user()->hasRole('driver')) {
+                return response()->json([
+                    'message' => 'Usuário não permitido.',
+                ], 403);
+            }
 
             return response()->json(Auth::user());
         }

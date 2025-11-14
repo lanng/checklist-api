@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('trip_segments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('checklist_id')->constrained('checklists')->onDelete('cascade');
-            $table->foreignId('driver_id')->constrained('users');
+            $table->foreignId('driver_id')->constrained('users')->onDelete('restrict');
             $table->string('truck_plate');
             $table->string('start_location_description');
             $table->string('end_location_description');

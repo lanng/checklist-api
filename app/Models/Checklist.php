@@ -31,6 +31,21 @@ class Checklist extends Model
             ->implode(' / ');
     }
 
+    public function photos(): HasMany
+    {
+        return $this->hasMany(ChecklistPhoto::class);
+    }
+
+    public function originPhotos(): HasMany
+    {
+        return $this->hasMany(ChecklistPhoto::class)->where('type', 'origin');
+    }
+
+    public function destinationPhotos(): HasMany
+    {
+        return $this->hasMany(ChecklistPhoto::class)->where('type', 'destination');
+    }
+
     public function segments(): HasMany
     {
         return $this->hasMany(TripSegment::class)->orderBy('order');

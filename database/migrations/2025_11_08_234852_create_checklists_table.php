@@ -19,8 +19,7 @@ return new class extends Migration
             $table->string('pdf_path')->nullable();
             $table->string('origin_city')->nullable();
             $table->string('destination_city')->nullable();
-            $table->foreignId('vehicle_model_id')->constrained('vehicles');
-            $table->foreignId('driver_id')->constrained('users');
+            $table->foreignId('vehicle_id')->constrained('vehicles');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -7,6 +7,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class CompanyResource extends JsonResource
 {
+    private mixed $id;
+
+    private mixed $name;
+
     /**
      * Transform the resource into an array.
      *
